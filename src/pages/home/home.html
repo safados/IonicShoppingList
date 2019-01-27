@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Shoping List
+    </ion-title>
+    <ion-buttons end>
+      <button navPush="AddShoppingItemPage" ion-button>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-list-header>
+      Items
+    </ion-list-header>
+<!-- this to line show me all items name i send to database in homepage,if i remove it it will display items just in firebase  -->    
+   <ion-item *ngFor="let item of shoppingList$ | async"
+   detail-push navPush="EditShoppingItemPage" [navParams]="{item: item}">
+    {{item.Name}}
+   </ion-item>
+    
+  </ion-list>
+
+</ion-content>
